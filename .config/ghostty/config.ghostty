@@ -1,0 +1,10 @@
+config-file = ?~/.cache/wal/colors.ghostty
+
+font-family = FiraCode Nerd Font Mono
+font-size = 14
+
+background-blur = false
+
+macos-titlebar-style = hidden
+
+window-padding-balance = true
