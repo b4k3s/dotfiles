@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source "$HOME/.cache/wal/colors.sh"
+
+active_color="0xff${color9//#/}"
+inactive_color="0xff${color6//#/}"
+
+options=(
+    style=rounded
+    width=6.0
+    hidpi=off
+    active_color="$active_color"
+    inactive_color="$inactive_color"
+)
+
+borders "${options[@]}"
