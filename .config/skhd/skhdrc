@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# Written for my personal, patched build of yabai.
+
+lalt - return : open -a Ghostty ~
+lalt - w : librewolf --new-window
+lalt - r : open -na Ghostty --args --quit-after-last-window-closed=true -e lf ~
+
+lalt - v : mpv $(pbpaste)
+shift + lalt - v : mpv --no-video --force-window $(pbpaste)
+
+lalt - e : yabai -m window --toggle split
+lalt - t : yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2
+lalt - d : yabai -m window --toggle zoom-parent
+lalt - f : yabai -m window --toggle windowed-fullscreen
+
+lalt - h : yabai -m space --mfact rel:-0.05
+lalt - l : yabai -m space --mfact rel:0.05
+lalt - space : yabai -m window --toggle zoom-master
+lalt - o : yabai -m space --nmaster rel:1
+shift + lalt - o : yabai -m space --nmaster rel:-1
+
+lalt - j : yabai -m window --focus stack.next || yabai -m window --focus stack.first || yabai -m window --focus next || yabai -m window --focus first
+lalt - k : yabai -m window --focus stack.prev || yabai -m window --focus stack.last || yabai -m window --focus prev || yabai -m window --focus last
+shift + lalt - j : yabai -m window --swap next || yabai -m window --swap first
+shift + lalt - k : yabai -m window --swap prev || yabai -m window --swap last
+
+lalt - a : ~/.config/skhd/toggle_spacing.sh
+shift + lalt - a : yabai -m space --gap abs:16 --padding abs:18:18:19:19
+
+lalt - 1 : yabai -m space --focus 1
+lalt - 2 : yabai -m space --focus 2
+lalt - 3 : yabai -m space --focus 3
+lalt - 4 : yabai -m space --focus 4
+lalt - 5 : yabai -m space --focus 5
+lalt - 6 : yabai -m space --focus 6
+lalt - 7 : yabai -m space --focus 7
+lalt - 8 : yabai -m space --focus 8
+lalt - 9 : yabai -m space --focus 9
+
+shift + lalt - 1 : yabai -m window --space 1 --focus
+shift + lalt - 2 : yabai -m window --space 2 --focus
+shift + lalt - 3 : yabai -m window --space 3 --focus
+shift + lalt - 4 : yabai -m window --space 4 --focus
+shift + lalt - 5 : yabai -m window --space 5 --focus
+shift + lalt - 6 : yabai -m window --space 6 --focus
+shift + lalt - 7 : yabai -m window --space 7 --focus
+shift + lalt - 8 : yabai -m window --space 8 --focus
+shift + lalt - 9 : yabai -m window --space 9 --focus
+shift + lalt - 0 : yabai -m space --balance
+
+shift + lalt - r : yabai --restart-service
