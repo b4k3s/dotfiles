@@ -25,7 +25,6 @@ opts=(
 
 yabai -m config "${opts[@]}"
 
-# insert_feedback_color: wal writes this file from its template; unquoted so it splits into key and value
 if [ -f "$HOME/.cache/wal/colors.yabai" ]; then
     yabai -m config $(cat "$HOME/.cache/wal/colors.yabai")
 fi
