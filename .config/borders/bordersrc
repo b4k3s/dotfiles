@@ -2,8 +2,8 @@
 
 source "$HOME/.cache/wal/colors.sh"
 
-active_color="0xff${color9//#/}"
-inactive_color="0xff${color6//#/}"
+active_color="0xff${color4//#/}"
+inactive_color="0xff${color8//#/}"
 
 options=(
     style=rounded
