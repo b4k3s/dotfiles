@@ -1,19 +1,19 @@
 include ../../.cache/wal/colors.zathura
 
-set font                            "FiraCode Nerd Font Regular 13"
+set font                        "FiraCode Nerd Font Regular 13"
 
-set guioptions                      ""
+set guioptions                  ""
 
-set page-h-padding                    0
-set page-v-padding                    0
+set page-h-padding              0
+set page-v-padding              0
 
-set recolor                         true
-set recolor-keephue                 true
-set recolor-reverse-video           false
+set recolor                     true
+set recolor-keephue             true
+set recolor-reverse-video       false
 
-set selection-clipboard             clipboard
-set selection-notification          false
+set selection-clipboard         clipboard
+set selection-notification      false
 
-set window-title-home-tilde         true
+set window-title-home-tilde     true
 
-set hide-titlebar                   true
+set hide-titlebar               true
