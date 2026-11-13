@@ -1,0 +1,2 @@
+insert_feedback_color 0xff{color4.strip}
+normal_window_opacity {background.alpha_dec}

@@ -14,8 +14,6 @@ opts=(
     layout                  master
     window_shadow           float
     window_opacity          off
-    normal_window_opacity   0.8
-    insert_feedback_color   0xffcc241d
     window_origin_display   focused
 
     top_padding             18
@@ -26,6 +24,11 @@ opts=(
 )
 
 yabai -m config "${opts[@]}"
+
+# insert_feedback_color: wal writes this file from its template; unquoted so it splits into key and value
+if [ -f "$HOME/.cache/wal/colors.yabai" ]; then
+    yabai -m config $(cat "$HOME/.cache/wal/colors.yabai")
+fi
 
 yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off sticky=on
