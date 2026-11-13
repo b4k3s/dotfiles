@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# restart borders only if it's running, so it picks up the new colors
+if command -v brew >/dev/null 2>&1 && brew services list 2>/dev/null | grep -q '^borders[[:space:]]*started'; then
+    brew services restart borders
+fi
+
+# LibreWolf pages (userContent.css) can only import from the profile's chrome folder.
+# The profile name has a per-install hash, so find it the way install.sh does.
+librewolf_dir="$HOME/Library/Application Support/LibreWolf"
+profile_rel=$(awk '/^\[Install/{f=1; next} f && /^Default=/{print substr($0, 9); exit} /^\[/{f=0}' "$librewolf_dir/profiles.ini" 2>/dev/null)
+if [ -n "$profile_rel" ] && [ -d "$librewolf_dir/$profile_rel/chrome" ]; then
+    cat "$HOME/.cache/wal/colors.css" "$HOME/.cache/wal/colors-librewolf.css" > "$librewolf_dir/$profile_rel/chrome/colors-content.css"
+else
+    echo "postrun: LibreWolf chrome folder not found, skipping colors-content.css (run install.sh first)" >&2
+fi
