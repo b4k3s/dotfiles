@@ -1,0 +1,39 @@
+#!/usr/bin/env sh
+
+# Written for my personal, patched build of yabai.
+
+# gap -> 10 + (3 + 3) for border
+# xpadding -> 16 + 3 for border
+# ypadding -> 15 + 3 for border
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+opts=(
+    focus_follows_mouse     autofocus
+    layout                  master
+    window_shadow           float
+    window_opacity          off
+    normal_window_opacity   0.8
+    insert_feedback_color   0xffcc241d
+    window_origin_display   focused
+
+    top_padding             18
+    bottom_padding          18
+    left_padding            19
+    right_padding           19
+    window_gap              16
+)
+
+yabai -m config "${opts[@]}"
+
+yabai -m rule --add app="^System Information$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off sticky=on
+yabai -m rule --add app="^Calculator$" manage=off sticky=on
+yabai -m rule --add app="^ProtonVPN$" manage=off sticky=on
+yabai -m rule --add app="^Bitwarden$" manage=off sticky=on
+yabai -m rule --add app="^Finder$" title=".* Info$" manage=off
+yabai -m rule --add app="^Finder$" title="^Finder Preferences$" manage=off
+yabai -m rule --add app="^Calendar$" title!="^Calendar$" manage=off
+yabai -m rule --add app="^Discord$" title="^Discord Updater$" manage=off
+yabai -m rule --add app="^ScanSnap Home$" title="^ScanSnap Home - Scan$" manage=off
